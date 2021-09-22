@@ -9,20 +9,23 @@ function App() {
   const [contacts, setContacts] = useState(fiveContacts);
   const randomAdder = () => {
     const otherContacts = allContacts.filter(contact => ![...contacts].map(contact => contact.id).includes(contact.id))
-    const newContact = otherContacts[Math.floor(Math.random() * otherContacts.length)] || []
-    setContacts(contacts => [newContact, ...contacts]);
+    if (otherContacts.length > 0){
+
+      const newContact = otherContacts[Math.floor(Math.random() * otherContacts.length)] || []
+      setContacts(contacts => [newContact, ...contacts]);
+    } else {
+      setContacts(contacts => [...contacts]);
+    }
   }
 
   const popularitySorter = () => {
     let sortedContacts = [...contacts].sort((a, b) => b.popularity - a.popularity)
     setContacts(contacts => sortedContacts)
-    console.log (contacts)
   }
 
   const nameSorter = () => {
     let sortedContacts = [...contacts].sort((a, b) => a.name.localeCompare(b.name))
     setContacts(contacts => sortedContacts)
-    console.log (contacts)
   }
 
   const contactDeleter = id => {
