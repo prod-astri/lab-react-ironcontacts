@@ -4,9 +4,13 @@
   align-items: center;
   background-color: aliceblue;
 }
-.contactCard {
+td {
+  width: 100px;
+  text-align: center;
+}
+/* .contactCard {
   display: flex;
   flex-direction: row;
   width: 600px;
   justify-content: space-between;
-}
+} */
